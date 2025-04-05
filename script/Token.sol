@@ -2,17 +2,17 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {FoundryToken} from "../src/Counter.sol";
+import {YashCoin} from "../src/Token.sol";
 
 contract CounterScript is Script {
-    FoundryToken public foundryToken;
+    YashCoin public yc;
 
     function setUp() public {}
 
     function run() public {
         vm.startBroadcast();
 
-        foundryToken = new FoundryToken();
+        yc = new YashCoin();
 
         vm.stopBroadcast();
     }
