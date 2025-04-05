@@ -15,10 +15,7 @@ contract LockToken {
 
     function deposit(uint256 amount) public {
         require(amount > 0, "Amount must be > 0");
-        require(
-            IERC20(yashCoinAddress).allowance(msg.sender, address(this)) >= amount,
-            "Insufficient allowance"
-        );
+        require(IERC20(yashCoinAddress).allowance(msg.sender, address(this)) >= amount, "Insufficient allowance");
 
         bool success = IERC20(yashCoinAddress).transferFrom(msg.sender, address(this), amount);
         require(success, "Transfer failed");
